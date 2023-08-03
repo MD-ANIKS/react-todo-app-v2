@@ -1,38 +1,187 @@
-.App {
-  text-align: center;
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+#todo_area{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   min-height: 100vh;
+  background: linear-gradient(#a52f2f, hsl(202.67deg 54.57% 48.49%))
+}
+
+#todo_area .container{
+  width: 100%;
+  max-width: 1440px;
+  padding: 0px 30px;
+}
+
+.todo_area_wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.todo_area_wrapper .todo{
+  padding: 100px 0px;
+  width: 250px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  gap: 25px;
 }
 
-.App-link {
-  color: #61dafb;
+.todo_area_wrapper .todo figure{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.todo_area_wrapper .todo figure img{
+  width: 100px;
 }
+
+.todo_area_wrapper .todo figure figcaption{
+  color: #fff;
+  text-transform: capitalize;
+  font-size: 15px;
+} 
+
+.todo_area_wrapper .todo .input_area{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  position: relative;
+}
+
+.todo_area_wrapper .todo .input_area input{
+  padding: 12px 15px;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.todo_area_wrapper .todo .input_area i{
+  position: absolute;
+  cursor: pointer;
+  right: 15px;
+  transition: all 0.5s ease;
+}
+
+.todo_area_wrapper .todo .input_area i:hover{
+  color: green;
+}
+
+
+
+
+.todo_area_wrapper .todo .list_items{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 10px;
+}
+
+.todo_area_wrapper .todo .list_items .each_item{
+  width: 100%;
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color:rgb(58 60 75 / 84%);
+  color: #fff;
+  transition: all 0.5s ease;
+}
+
+.todo_area_wrapper .todo .list_items .each_item:hover{
+  background-color: rgb(26 26 28 / 66%);
+  color:#c7c4c4;
+}
+.todo_area_wrapper .todo .list_items .each_item:hover .edit_icon{
+  color: green;
+}
+.todo_area_wrapper .todo .list_items .each_item:hover .delete_icon{
+  color: red;
+}
+
+.todo_area_wrapper .todo .list_items .each_item .item_icons{
+  display: flex;
+  gap: 10px;
+}
+
+.todo_area_wrapper .todo .list_items .each_item i{
+  cursor: pointer;
+}
+
+
+
+.btn-flip{
+	opacity: 1;
+	outline: none;
+  border: none;
+	color: #fff;
+	line-height: 40px;
+	position: relative;
+	text-align: center;
+	letter-spacing: 1px;
+	display: inline-block;
+	text-decoration: none;
+	font-family: 'Open Sans', 'sans-serif';
+	text-transform: uppercase;
+	
+}
+		
+	
+	
+	.btn-flip:after{
+		top: 0;
+		left: 0;
+		opacity: 0;
+		width: 100%;
+		color: #adadaf;
+		display: block;
+		transition: 0.3s;
+		position: absolute;
+		background: rgb(53 53 55);
+		content: attr(data-back);
+		transform: translateY(-50%) rotateX(90deg);
+	}
+	
+	.btn-flip:before{
+		top: 0;
+		left: 0;
+		opacity: 1;
+		color: #adadaf;
+		display: block;
+		padding: 0 30px;
+		line-height: 40px;
+		transition: .3s;
+		position: relative;
+		background: rgb(65 67 85);
+		content: attr(data-front);
+		transform: translateY(0) rotateX(0);
+	}
+
+  .btn-flip:hover:after{
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+  }
+  
+  .btn-flip:hover:before{
+    opacity: 0;
+    transform: translateY(50%) rotateX(90deg);
+  }
